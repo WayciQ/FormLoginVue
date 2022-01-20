@@ -7,7 +7,7 @@ export default {
   props: ["username", "password"],
   methods: {
     submit() {
-      alert("Submit", this.username, this.password);
+      this.$emit("submit");
     },
   },
 };

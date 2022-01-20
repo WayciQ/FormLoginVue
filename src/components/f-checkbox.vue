@@ -1,21 +1,28 @@
 <template>
   <div class="checkbox-group">
-    <input type="checkbox" v-model="remember" />
-    <label for="checkbox" @click="setRemember">Remember me</label>
+    <input type="checkbox" v-model="isCheck" />
+    <label for="checkbox" @click="setCheck">{{ label }}</label>
   </div>
 </template>
 
 <script>
 export default {
-  name: "fCheckbox",
+  name: "FCheckbox",
+  props: {
+    label: {
+      type: String,
+      default: "Label",
+    },
+  },
   data() {
     return {
-      remember: false,
+      isCheck: false,
     };
   },
   methods: {
-    setRemember() {
-      this.remember = !this.remember;
+    setCheck() {
+      this.isCheck = !this.isCheck;
+      this.$emit("isCheck", this.isCheck);
     },
   },
 };
